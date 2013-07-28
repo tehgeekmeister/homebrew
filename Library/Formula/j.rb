@@ -4,13 +4,16 @@ require 'formula'
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 
 class J < Formula
-  homepage ''
+  version "0.7"
+  homepage 'http://www.jsoftware.com'
   url 'http://www.jsoftware.com/download/j701_b_source.tar.gz'
   sha1 'cda6cf9d4299cdcfdbb77ca69886d667a9f595a4'
 
   def install
     system "./bin/build_jconsole"
     system "./bin/build_libj"
+    bin.install "./j/bin/jconsole" => "j"
+    bin.install "./j/bin/libj.dylib"
   end
 
   test do
